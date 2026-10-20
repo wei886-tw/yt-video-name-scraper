@@ -51,11 +51,22 @@
 
 ## 執行
 
+執行時帶入頻道 handle（可含或不含 `@`）：
+
+### 如何找到頻道 handle
+
+handle 是頻道名稱旁以 `@` 開頭的識別名稱，取得方式：
+
+- 開啟頻道頁面，網址會是 `youtube.com/@handle`，`@` 後面的部分就是。
+- 頻道名稱下方也會顯示 `@handle`，手機 App 同樣看得到。
+
+注意：用 App 的「分享」功能複製的連結，可能是 `youtube.com/channel/UC...` 格式，這種網址不含 handle，請改從頻道頁面讀取。
+
 ```bash
-node --env-file=.env index.js
+npm start -- Tenhao1978
 ```
 
-執行成功後會在同目錄產生 `output.md`，終端機會顯示頻道名稱與抓到的影片數量。
+不帶參數會顯示用法說明。執行成功後會在同目錄產生 `output.md`，終端機會顯示頻道名稱與抓到的影片數量。
 
 ## 輸出範例
 
@@ -70,7 +81,7 @@ node --env-file=.env index.js
 
 - YouTube Data API 有每日配額，影片數量很大的頻道可能一次跑不完。實際配額請參考 [官方文件](https://developers.google.com/youtube/v3/determine_quota_cost)。
 - 只能抓到公開影片，私人或未列出的影片不會出現在清單中。
-- 目前一次只處理一個頻道，頻道 handle 需要手動修改 `index.js`。
+- 目前一次只處理一個頻道，要抓其他頻道需重新執行並帶入不同的 handle。
 
 ## 安全注意事項
 
